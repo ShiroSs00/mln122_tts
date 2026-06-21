@@ -8,6 +8,49 @@ function driver(metrics, key, rule, impact, status = "neutral") {
   };
 }
 
+export const marketResultCatalog = [
+  {
+    id: "platform-wins",
+    title: "Nền tảng thắng, hệ sinh thái thu hẹp",
+    hint:
+      "Đẩy quyền lực nền tảng lên rất cao, đồng thời để cạnh tranh và độ mở thị trường bị thu hẹp.",
+    unlockedNote:
+      "Nền tảng đã vượt vai trò cầu nối và gần như đặt luật chơi cho các chủ thể còn lại."
+  },
+  {
+    id: "dependent-growth",
+    title: "Tăng trưởng lệ thuộc",
+    hint:
+      "Tạo tăng trưởng giao dịch mạnh, nhưng để phí, thuật toán và lưu lượng phụ thuộc nhiều vào nền tảng.",
+    unlockedNote:
+      "Thị trường vẫn tăng nhưng người bán và người mua phải xoay quanh điều kiện vận hành của nền tảng."
+  },
+  {
+    id: "contested-market",
+    title: "Thị trường giằng co",
+    hint:
+      "Tạo một cấu trúc nhiều đánh đổi: có chỉ số tăng, có chỉ số bị kéo xuống, không bên nào áp đảo hoàn toàn.",
+    unlockedNote:
+      "Các chủ thể cùng được một phần lợi ích, nhưng xung đột quyền lực thị trường vẫn chưa được giải quyết."
+  },
+  {
+    id: "balanced-market",
+    title: "Thị trường cân bằng",
+    hint:
+      "Giữ người bán, người mua và cạnh tranh cùng ở mức khỏe, trong khi quyền lực nền tảng không vượt ngưỡng chi phối.",
+    unlockedNote:
+      "Trung gian vẫn làm cầu nối hiệu quả, còn các chủ thể khác chưa bị lấn át."
+  },
+  {
+    id: "strictly-regulated",
+    title: "Thị trường được kiểm soát chặt",
+    hint:
+      "Giảm quyền lực nền tảng, tăng minh bạch, bảo vệ người mua và giữ không gian cạnh tranh cho người bán nhỏ.",
+    unlockedNote:
+      "Nhà nước can thiệp rõ hơn để khắc phục khuyết tật thị trường và giới hạn quyền đặt luật của nền tảng."
+  }
+];
+
 export function getMarketResult(metrics) {
   if (metrics.platformPower >= 86 && metrics.marketOpenness <= 50) {
     return {

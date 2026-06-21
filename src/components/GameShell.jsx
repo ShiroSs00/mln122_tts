@@ -11,6 +11,7 @@ import Quiz from "./Quiz.jsx";
 import SourceSection from "./SourceSection.jsx";
 import SceneVisual from "./SceneVisual.jsx";
 import { gameScenes, initialMetrics, intro } from "../data/gameScenes.js";
+import { getMarketResult } from "../data/marketResults.js";
 import { useSceneParallax } from "../hooks/useSceneParallax.js";
 import { useSceneReveal } from "../hooks/useSceneReveal.js";
 import { useReducedMotion } from "../hooks/useReducedMotion.js";
@@ -44,6 +45,7 @@ export default function GameShell() {
   const [quizUnlocked, setQuizUnlocked] = useState(false);
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [postSection, setPostSection] = useState("result");
+  const [unlockedEndingIds, setUnlockedEndingIds] = useState([]);
 
   const selectedByIndex = useMemo(() => {
     return gameScenes.map((scene) => choices[scene.id] ?? null);
@@ -59,6 +61,15 @@ export default function GameShell() {
       (quizCompleted ? 1 : 0);
     return Math.min(completedUnits / 9, 1);
   }, [decisionHistory.length, gameCompleted, quizCompleted, quizUnlocked, realityOpened, started]);
+
+  const currentResult = useMemo(() => getMarketResult(metrics), [metrics]);
+
+  useEffect(() => {
+    if (!gameCompleted) return;
+    setUnlockedEndingIds((ids) =>
+      ids.includes(currentResult.id) ? ids : [...ids, currentResult.id]
+    );
+  }, [currentResult.id, gameCompleted]);
 
   const progressLabel = useMemo(() => {
     if (!started) return "Cửa vào thị trường";
@@ -241,7 +252,12 @@ export default function GameShell() {
 
         {gameCompleted ? (
           <div data-post-section="result" ref={resultRef}>
-            <MarketResult metrics={metrics} history={decisionHistory} onRevealReality={() => navigatePostGame("reality")} />
+            <MarketResult
+              metrics={metrics}
+              history={decisionHistory}
+              unlockedEndingIds={unlockedEndingIds}
+              onRevealReality={() => navigatePostGame("reality")}
+            />
           </div>
         ) : null}
 

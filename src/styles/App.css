@@ -1311,6 +1311,113 @@ h3 {
   line-height: 1.55;
 }
 
+.ending-collection {
+  grid-column: 1 / -1;
+  padding: 20px;
+  border: 1px solid var(--color-cream-dark);
+  border-left: 4px solid var(--color-red);
+  background: rgba(245, 240, 232, 0.94);
+}
+
+.ending-collection__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.ending-collection__header h3 {
+  margin: 6px 0 0;
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 3.6vw, 42px);
+  line-height: 0.98;
+}
+
+.ending-collection__header strong {
+  color: var(--color-gold);
+  font-family: var(--font-serif);
+  font-size: 44px;
+  line-height: 1;
+}
+
+.ending-collection > p {
+  max-width: 820px;
+  margin: 12px 0 0;
+  color: var(--color-gray);
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.ending-collection__grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.ending-card {
+  min-height: 190px;
+  padding: 14px;
+  border: 1px solid var(--color-cream-dark);
+  border-left: 4px solid var(--color-cream-dark);
+  background: var(--color-paper);
+}
+
+.ending-card--current {
+  border-left-color: var(--color-red);
+}
+
+.ending-card--unlocked:not(.ending-card--current) {
+  border-left-color: var(--color-gold);
+}
+
+.ending-card--locked {
+  background: var(--color-cream);
+}
+
+.ending-card__meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ending-card__meta span,
+.ending-card__meta b {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ending-card__meta span {
+  color: var(--color-gray);
+}
+
+.ending-card__meta b {
+  color: var(--color-red);
+  text-align: right;
+}
+
+.ending-card--locked .ending-card__meta b {
+  color: var(--color-gray);
+}
+
+.ending-card h4 {
+  margin: 18px 0 10px;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  line-height: 1.02;
+}
+
+.ending-card p {
+  margin: 0;
+  color: var(--color-gray);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
 .decision-timeline {
   grid-column: 1 / -1;
   padding: 20px;
@@ -1686,6 +1793,7 @@ h3 {
   .result-grid,
   .final-metrics,
   .result-driver-list,
+  .ending-collection__grid,
   .reality-grid,
   .theory-grid,
   .answers,
