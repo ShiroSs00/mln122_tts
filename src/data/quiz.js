@@ -63,11 +63,77 @@ export const quizQuestions = [
     explanation:
       "Vai trò nhà nước là khắc phục khuyết tật thị trường bằng minh bạch, bảo vệ cạnh tranh và cơ chế khiếu nại công bằng.",
     reference: "Giáo trình KTCT Mác-Lênin (2021), tr.70"
+  },
+  {
+    question: "Theo giáo trình, người sản xuất tham gia thị trường với mục tiêu kinh tế trực tiếp nào?",
+    options: [
+      "Tối đa hóa lợi nhuận thông qua cung cấp hàng hóa",
+      "Chỉ làm theo mọi quyết định của người mua",
+      "Thay Nhà nước ban hành chính sách cạnh tranh",
+      "Không chịu tác động bởi chi phí nền tảng"
+    ],
+    correctIndex: 0,
+    explanation:
+      "Người sản xuất cung cấp hàng hóa, dịch vụ và hướng tới lợi nhuận. Vì vậy thay đổi về phí, hiển thị hoặc chi phí tìm khách sẽ tác động trực tiếp đến quyết định sản xuất.",
+    reference: "Giáo trình KTCT Mác-Lênin (2021), tr.68"
+  },
+  {
+    question: "Khi người tiêu dùng so sánh nhiều shop trước khi mua, tác động thị trường tích cực nhất là gì?",
+    options: [
+      "Làm mọi shop mất động lực cạnh tranh",
+      "Tạo tín hiệu nhu cầu rõ hơn và thúc đẩy cạnh tranh",
+      "Khiến nền tảng không còn vai trò trung gian",
+      "Loại bỏ hoàn toàn rủi ro hàng kém chất lượng"
+    ],
+    correctIndex: 1,
+    explanation:
+      "Hành vi mua của người tiêu dùng định hướng sản xuất. Khi người mua so sánh, thị trường nhận tín hiệu rõ hơn về giá, chất lượng và dịch vụ.",
+    reference: "Giáo trình KTCT Mác-Lênin (2021), tr.69"
+  },
+  {
+    question: "Vì sao tăng phí đồng loạt có thể làm giảm độ mở thị trường?",
+    options: [
+      "Vì mọi nhà bán đều tự động tăng lợi nhuận",
+      "Vì người mua không còn quyền lựa chọn",
+      "Vì người bán nhỏ chịu áp lực chi phí lớn hơn và dễ rời thị trường",
+      "Vì Nhà nước không được phép quản lý thị trường"
+    ],
+    correctIndex: 2,
+    explanation:
+      "Phí nền tảng là điều kiện tham gia thị trường. Khi phí tăng đồng loạt, người bán nhỏ yếu vốn dễ bị đẩy ra ngoài, làm cạnh tranh và cơ hội gia nhập giảm.",
+    reference: "Giáo trình KTCT Mác-Lênin (2021), tr.69-70"
+  },
+  {
+    question: "Dấu hiệu nào thể hiện nền tảng đang tiến gần vai trò người đặt luật chơi?",
+    options: [
+      "Chỉ cung cấp ảnh sản phẩm đẹp hơn",
+      "Quyết định hiển thị, phí, điều kiện tham gia và cơ chế xử lý vi phạm",
+      "Chỉ giao hàng nhanh hơn đối thủ",
+      "Chỉ có nhiều người dùng trẻ"
+    ],
+    correctIndex: 1,
+    explanation:
+      "Khi nền tảng kiểm soát điều kiện xuất hiện và giao dịch, nó không chỉ kết nối các bên mà còn quy định cách các chủ thể tham gia thị trường.",
+    reference: "Giáo trình KTCT Mác-Lênin (2021), tr.69"
+  },
+  {
+    question: "Can thiệp nào cân bằng nhất giữa phát triển nền tảng và bảo vệ thị trường?",
+    options: [
+      "Cấm toàn bộ livestream bán hàng",
+      "Không quản lý vì thị trường luôn tự tối ưu",
+      "Minh bạch thuật toán, phí và cơ chế khiếu nại nhưng vẫn cho nền tảng vận hành",
+      "Chỉ bảo vệ nền tảng có thị phần lớn"
+    ],
+    correctIndex: 2,
+    explanation:
+      "Nhà nước cần khắc phục khuyết tật thị trường nhưng vẫn bảo đảm thị trường phát triển. Minh bạch và cơ chế khiếu nại giúp kiểm soát quyền lực nền tảng mà không xóa vai trò trung gian.",
+    reference: "Giáo trình KTCT Mác-Lênin (2021), tr.70"
   }
 ];
 
-export function getGrade(score) {
-  if (score <= 2) return "Bạn đang nhìn thị trường từ một phía.";
-  if (score <= 4) return "Bạn đã nhận diện được sự đánh đổi trong thị trường số.";
+export function getGrade(score, total = quizQuestions.length) {
+  const ratio = score / total;
+  if (ratio <= 0.4) return "Bạn đang nhìn thị trường từ một phía.";
+  if (ratio <= 0.75) return "Bạn đã nhận diện được sự đánh đổi trong thị trường số.";
   return "Bạn đã nhìn được toàn bộ cấu trúc thị trường.";
 }

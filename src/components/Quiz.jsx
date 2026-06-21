@@ -4,6 +4,7 @@ import { getGrade, quizQuestions } from "../data/quiz.js";
 import QuizQuestion from "./QuizQuestion.jsx";
 
 export default function Quiz({ unlocked, onComplete }) {
+  const totalQuestions = quizQuestions.length;
   const [index, setIndex] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [score, setScore] = useState(0);
@@ -58,7 +59,7 @@ export default function Quiz({ unlocked, onComplete }) {
   };
 
   const next = () => {
-    if (index < quizQuestions.length - 1) {
+    if (index < totalQuestions - 1) {
       setIndex((value) => value + 1);
       setSelectedIndex(null);
       return;
@@ -78,18 +79,18 @@ export default function Quiz({ unlocked, onComplete }) {
     <section className="quiz-section" id="quiz">
       <div className="quiz-panel">
         <div className="quiz-meter">
-          <span style={{ width: `${complete ? 100 : (index / quizQuestions.length) * 100}%` }} />
+          <span style={{ width: `${complete ? 100 : (index / totalQuestions) * 100}%` }} />
         </div>
         <div className="quiz-panel__meta">
-          <span>Câu {complete ? quizQuestions.length : index + 1}/5</span>
-          <strong>{score}/5 điểm</strong>
+          <span>Câu {complete ? totalQuestions : index + 1}/{totalQuestions}</span>
+          <strong>{score}/{totalQuestions} điểm</strong>
         </div>
         {!complete ? (
           <>
             <QuizQuestion question={question} selectedIndex={selectedIndex} onAnswer={answer} />
             <div className="quiz-actions">
               <button className="continue-button" type="button" disabled={!answered} onClick={next}>
-                {index === quizQuestions.length - 1 ? "Xem kết quả" : "Câu tiếp theo"}
+                {index === totalQuestions - 1 ? "Xem kết quả" : "Câu tiếp theo"}
               </button>
             </div>
           </>
@@ -97,11 +98,11 @@ export default function Quiz({ unlocked, onComplete }) {
           <div className="quiz-result">
             <div className="score-ring">
               <span ref={scoreRef}>0</span>
-              <small>/5</small>
+              <small>/{totalQuestions}</small>
             </div>
             <div>
               <p className="eyebrow">Kết quả</p>
-              <h2>{getGrade(score)}</h2>
+              <h2>{getGrade(score, totalQuestions)}</h2>
               <p>
                 Điểm số không chỉ để kiểm tra nhớ số liệu, mà để xem bạn có nhận diện được cấu trúc quyền lực giữa người bán, người mua, nền tảng và Nhà nước hay không.
               </p>

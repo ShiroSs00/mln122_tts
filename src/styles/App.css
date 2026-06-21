@@ -1049,11 +1049,29 @@ h3 {
 }
 
 .choice-deltas span {
-  padding: 4px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 8px;
   border: 1px solid var(--color-cream-dark);
   background: var(--color-paper);
   font-size: 12px;
   font-weight: 600;
+}
+
+.choice-deltas strong {
+  color: var(--color-gray);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.choice-deltas em {
+  color: inherit;
+  font-style: normal;
+  font-weight: 800;
 }
 
 .consequence {
@@ -1149,6 +1167,18 @@ h3 {
 .reality-reveal {
   position: relative;
   overflow: hidden;
+}
+
+.market-result .scene-visual--result {
+  opacity: 0.52;
+}
+
+.market-result .section-heading {
+  max-width: 790px;
+  padding: 18px 20px;
+  border: 1px solid var(--color-cream-dark);
+  border-left: 4px solid var(--color-red);
+  background: rgba(250, 248, 244, 0.92);
 }
 
 .section-heading {

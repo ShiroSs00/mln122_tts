@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import anime from "animejs/lib/anime.es.js";
+import { metricMeta } from "../data/gameScenes.js";
 
 export default function ChoiceCard({ choice, disabled, selected, onSelect }) {
   const ref = useRef(null);
@@ -27,8 +28,11 @@ export default function ChoiceCard({ choice, disabled, selected, onSelect }) {
       <div className="choice-deltas" aria-label="Tác động chỉ số">
         {Object.entries(choice.deltas).map(([key, value]) => (
           <span className={value >= 0 ? "delta--up" : "delta--down"} key={key}>
-            {value >= 0 ? "+" : ""}
-            {value}
+            <strong>{metricMeta[key].shortLabel}</strong>
+            <em>
+              {value >= 0 ? "+" : ""}
+              {value}
+            </em>
           </span>
         ))}
       </div>
