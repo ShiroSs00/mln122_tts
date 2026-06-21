@@ -1,0 +1,16 @@
+:root {
+  --color-red: #8B1A1A;
+  --color-red-light: #C0392B;
+  --color-cream: #F5F0E8;
+  --color-cream-dark: #E8E0D0;
+  --color-ink: #1A1A1A;
+  --color-gray: #6B6B6B;
+  --color-gold: #C9A84C;
+  --color-paper: #FAF8F4;
+  --color-green: #2E7D4F;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Be Vietnam Pro", Arial, sans-serif;
+  --radius: 3px;
+  --major-asset-max-width: 520px;
+  --metric-sidebar-width: 286px;
+}
