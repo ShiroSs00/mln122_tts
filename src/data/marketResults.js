@@ -1,5 +1,5 @@
 export function getMarketResult(metrics) {
-  if (metrics.platformPower >= 75 && metrics.marketOpenness < 45) {
+  if (metrics.platformPower >= 86 && metrics.marketOpenness <= 50) {
     return {
       id: "platform-wins",
       title: "Nền tảng thắng, hệ sinh thái thu hẹp",
@@ -8,22 +8,7 @@ export function getMarketResult(metrics) {
     };
   }
 
-  if (
-    metrics.sellerHealth >= 55 &&
-    metrics.buyerBenefit >= 55 &&
-    metrics.marketOpenness >= 55 &&
-    metrics.platformPower >= 35 &&
-    metrics.platformPower <= 70
-  ) {
-    return {
-      id: "balanced-market",
-      title: "Thị trường cân bằng",
-      explanation:
-        "Người bán, người mua và nền tảng cùng có lợi tương đối, trong khi cạnh tranh vẫn còn không gian. Đây là cấu trúc khó đạt nhưng bền vững hơn."
-    };
-  }
-
-  if (metrics.platformPower >= 70 && metrics.sellerHealth >= 45) {
+  if (metrics.platformPower >= 78) {
     return {
       id: "dependent-growth",
       title: "Tăng trưởng lệ thuộc",
@@ -32,21 +17,31 @@ export function getMarketResult(metrics) {
     };
   }
 
-  if (metrics.platformPower < 35 && metrics.marketOpenness >= 55 && metrics.buyerBenefit < 55) {
-    return {
-      id: "fragmented-autonomy",
-      title: "Tự chủ nhưng phân mảnh",
-      explanation:
-        "Quyền lực nền tảng thấp và thị trường mở hơn, nhưng trải nghiệm mua có thể kém thuận tiện, thiếu chuẩn hóa và khó bảo vệ người tiêu dùng."
-    };
-  }
-
-  if (metrics.platformPower < 40 && metrics.buyerBenefit >= 55 && metrics.marketOpenness >= 55) {
+  if (
+    metrics.platformPower <= 66 &&
+    metrics.marketOpenness >= 60 &&
+    metrics.buyerBenefit >= 55
+  ) {
     return {
       id: "strictly-regulated",
       title: "Thị trường được kiểm soát chặt",
       explanation:
         "Quyền lực nền tảng được giới hạn, cạnh tranh và lợi ích người mua được bảo vệ hơn. Đổi lại, nền tảng có thể giảm đầu tư hoặc ưu đãi."
+    };
+  }
+
+  if (
+    metrics.sellerHealth >= 52 &&
+    metrics.buyerBenefit >= 52 &&
+    metrics.marketOpenness >= 52 &&
+    metrics.platformPower >= 40 &&
+    metrics.platformPower <= 78
+  ) {
+    return {
+      id: "balanced-market",
+      title: "Thị trường cân bằng",
+      explanation:
+        "Người bán, người mua và nền tảng cùng có lợi tương đối, trong khi cạnh tranh vẫn còn không gian. Đây là cấu trúc khó đạt nhưng bền vững hơn."
     };
   }
 
