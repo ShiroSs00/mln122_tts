@@ -53,6 +53,32 @@ export default function MarketResult({ metrics, history, onRevealReality }) {
             ))}
           </div>
 
+          {result.reasoning ? (
+            <article className="result-reasoning">
+              <p className="eyebrow">Vì sao ra ending này?</p>
+              <h3>{result.reasoning.title}</h3>
+              <p>{result.reasoning.summary}</p>
+
+              <div className="result-driver-list">
+                {result.reasoning.drivers.map((item) => (
+                  <div
+                    className={`result-driver result-driver--${item.status}`}
+                    key={`${result.id}-${item.key}`}
+                  >
+                    <div className="result-driver__head">
+                      <span>{metricMeta[item.key].shortLabel}</span>
+                      <b>{item.value}</b>
+                    </div>
+                    <small>{item.rule}</small>
+                    <p>{item.impact}</p>
+                  </div>
+                ))}
+              </div>
+
+              <blockquote>{result.reasoning.theory}</blockquote>
+            </article>
+          ) : null}
+
           <div className="decision-timeline">
             <h3>Timeline lựa chọn</h3>
             {history.map((item, index) => (

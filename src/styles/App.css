@@ -1187,7 +1187,7 @@ h3 {
 
 .result-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.8fr);
+  grid-template-columns: minmax(300px, 0.8fr) minmax(430px, 1.2fr);
   gap: 24px;
   align-items: start;
 }
@@ -1216,7 +1216,103 @@ h3 {
   font-size: 48px;
 }
 
+.result-reasoning {
+  padding: 20px;
+  border: 1px solid var(--color-cream-dark);
+  border-left: 4px solid var(--color-gold);
+  background: rgba(250, 248, 244, 0.94);
+}
+
+.result-reasoning h3 {
+  max-width: 760px;
+  margin: 8px 0 10px;
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 0.96;
+}
+
+.result-reasoning > p {
+  max-width: 820px;
+  margin: 0;
+  color: var(--color-gray);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.result-driver-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.result-driver {
+  padding: 14px;
+  border: 1px solid var(--color-cream-dark);
+  border-left: 4px solid var(--color-cream-dark);
+  background: var(--color-cream);
+}
+
+.result-driver--good {
+  border-left-color: var(--color-green);
+}
+
+.result-driver--warning {
+  border-left-color: var(--color-gold);
+}
+
+.result-driver--danger {
+  border-left-color: var(--color-red-light);
+}
+
+.result-driver__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.result-driver__head span,
+.result-driver small {
+  color: var(--color-red);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.result-driver__head b {
+  color: var(--color-red);
+  font-family: var(--font-serif);
+  font-size: 32px;
+  line-height: 1;
+}
+
+.result-driver small {
+  display: block;
+  margin-top: 8px;
+  color: var(--color-gold);
+}
+
+.result-driver p {
+  margin: 8px 0 0;
+  color: var(--color-gray);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.result-reasoning blockquote {
+  margin: 18px 0 0;
+  padding: 14px 16px;
+  border-left: 4px solid var(--color-gold);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-style: italic;
+  line-height: 1.55;
+}
+
 .decision-timeline {
+  grid-column: 1 / -1;
   padding: 20px;
 }
 
@@ -1589,6 +1685,7 @@ h3 {
   .game-scene__content,
   .result-grid,
   .final-metrics,
+  .result-driver-list,
   .reality-grid,
   .theory-grid,
   .answers,
